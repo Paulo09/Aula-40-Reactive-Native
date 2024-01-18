@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, Image } from 'react-native';
+import AuthContext from '../../contexts/AuthContext';
 
 export default function LoginScreen() {
+
+    const { logado, setLogado } = useContext(AuthContext);
 
     const[login, setLogin] = useState('');
     const[senha, setSenha] = useState('');
@@ -9,6 +12,8 @@ export default function LoginScreen() {
     function acessar() {
         alert(login);
         alert(senha);
+        // ACESSO A API, VERIFICA SE LOGIN E SENHA CORRETA E ME RETORNA O TOKEN
+        setLogado(true);
     }
 
 
@@ -16,7 +21,7 @@ export default function LoginScreen() {
         <View style={styles.container}>
             {/* <View style={{ width: '90%', height: '20%', borderRadius: '100%', left: -20, top: 60, backgroundColor: 'white', position: 'absolute' }}></View>
             <View style={{ width: '90%', transform: 'rotate(90deg)', height: '20%', borderRadius: '100%', right: -100, top: 40, backgroundColor: 'white', position: 'absolute' }}></View> */}
-            
+           
             <View style={styles.box}>
                 <Image
                     style={styles.image}
